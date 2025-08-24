@@ -1,0 +1,6 @@
+git branch                       # Listar ramas
+git branch nueva-rama            # Crear rama
+git checkout nueva-rama          # Cambiar a esa rama
+git checkout -b nueva-rama       # Crear y cambiar a la vez
+git merge otra-rama              # Fusionar otra-rama en la actual
+git branch -d rama               # Borrar rama
