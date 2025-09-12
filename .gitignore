@@ -1,0 +1,11 @@
+#intellij
+.idea/
+*.iml
+#maven
+target/
+#archivos
+*.log
+*.class
+*.jar
+*.war
+*.ear
