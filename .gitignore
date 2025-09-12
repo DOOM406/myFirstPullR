@@ -2,7 +2,7 @@
 .idea/
 *.iml
 #maven
-target/
+M-Persona/target/
 #archivos
 *.log
 *.class
