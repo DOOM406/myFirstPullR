@@ -9,7 +9,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 
 import java.time.LocalDateTime;
+import java.util.LinkedList;
 
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito.*;
+@ExtendWith(MockitoExtension.class)
 public class TestPersona {
 
     @Test
