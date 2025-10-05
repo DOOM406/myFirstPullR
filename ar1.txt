@@ -1,0 +1,6 @@
+git status                       # Ver estado de cambios
+git add archivo.java             # Agregar un archivo específico
+git add .                        # Agregar todos los cambios
+git commit -m "mensaje"          # Crear commit con mensaje
+git push                         # Subir al remoto (si ya está configurado)
+git pull                         # Traer cambios del remoto
