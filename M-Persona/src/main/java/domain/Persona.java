@@ -22,6 +22,53 @@ public class Persona {
         this.DNI = DNI;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public LocalDateTime getBirthDate() {
+        return birthDate;
+    }
+
+    public int getHeigth() {
+        return heigth;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public String getDNI() {
+        return DNI;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setBirthDate(LocalDateTime birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public void setHeigth(int heigth) {
+        this.heigth = heigth;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
+    }
 
     public static Persona create(String name, String lastName, LocalDateTime fechaNato , int heigth, int weight, String DNI) throws PersonaException {
         if(name==null || name.isEmpty()) throw new NameNotEmpty("El nombre no puede estar vacio ni ser nulo"); //importa el orden de validación

@@ -1,20 +1,33 @@
+import UseCase.PersonaUseCase;
 import domain.Persona;
 import exceptions.DNIException;
 import exceptions.HeightNotValidException;
 import exceptions.NameNotEmpty;
 import exceptions.WeightNotValidException;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
 
 import java.time.LocalDateTime;
-import java.util.LinkedList;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito.*;
+import org.mockito.InjectMocks;
+import static org.mockito.Mockito.*;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import output.InterfacePersona;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.when;
+
 @ExtendWith(MockitoExtension.class)
 public class TestPersona {
+
+    @Mock
+    private InterfacePersona repositorio;
+    @InjectMocks
+    private PersonaUseCase personaUseCase;
 
     @Test
     @DisplayName("Constructor")
@@ -120,4 +133,35 @@ public class TestPersona {
                     "24555321");
         });
     }
+    //test con mockito
+    @Test
+    @DisplayName("Test: guardardado de persona exitoso")
+    public void Test06(){
+        //arrange
+        LocalDateTime fecha = LocalDateTime.of(2003,8,5,0,0);
+        Persona p_esperada = Persona.create("Ramiro",
+                "Tobares",
+                fecha,
+                174,
+                79,
+                "24555321");
+        //cuando se guarde cualquier objeto de tipo persona -> devolver p_esperada
+        when(repositorio.save(any(Persona.class))).thenReturn(p_esperada);
+
+        //act
+        Persona resultado = personaUseCase.savePersona("Ramiro",
+                "Tobares",
+                fecha,
+                174,
+                79,
+                "24555321");
+        //assert
+        Assertions.assertNotNull(resultado);
+        Assertions.assertEquals("Ramiro", resultado.getName());
+        //verifica si usamos el metodo save() del repositorio UNA vez
+        verify(repositorio, times(1)).save(any(Persona.class));
+    }
+    //test: verifcicar si nunca se guardo
+    //test: buscar persona por dNI
+    //test: buscar todas las personas
 }
